@@ -23,7 +23,7 @@ class ListContainer  extends Component {
   render() {
     return (
       <div>
-      <List list={this.state.list}/>
+      <List list={this.state.list} admin={false}/>
       </div>
     );
   }

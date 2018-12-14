@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListContainer from './container/listContainer';
+import Form from './container/form';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Form/>
         <ListContainer/>
       </div>
     );

@@ -3,15 +3,30 @@ import PropTypes from 'prop-types';
 
 class List extends Component {
 
+
   render() {
-    return (
-      <div>
-      <ul>
+    let admin=(<ul>
       {this.props.list.map(key=>(
         <li>{key.name} : {key.address.city}</li>
       )
     )}
-    </ul>
+    </ul>);
+
+    if(this.props.admin){
+
+      admin=(<ul>
+        {this.props.list.map(key=>(
+          <li>{key.name} : {key.email}, phone: {key.phone}</li>
+        )
+      )}
+      </ul>
+    );
+  }
+
+
+  return (
+    <div>
+      {admin}
     </div>
   );
 }
@@ -19,7 +34,8 @@ class List extends Component {
 }
 
 List.propTypes={
-  list:PropTypes.array
+  list:PropTypes.array,
+  admin: PropTypes.boolean
 }
 
 export default List ;
