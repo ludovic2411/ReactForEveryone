@@ -8,6 +8,7 @@ import Home from './presentationnal/home';
 import NoMatch from './presentationnal/404';
 
 class App extends Component {
+
   render() {
     return (
     <BrowserRouter>
@@ -17,7 +18,8 @@ class App extends Component {
         </header>
         <Switch>
           <Route  exact path="/" component={Home}/>
-          <Route path="/list" component={ListContainer}/>
+          <Route path="/list" render={(props)=><ListContainer {...props} privileged={false}/> }/>
+          <Route path="/admin" render={(props)=>(<ListContainer {...props} privileged={true}/> )}/>
           <Route component={NoMatch}/>
         </Switch>
       </div>
