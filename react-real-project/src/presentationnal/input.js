@@ -17,7 +17,8 @@ class Input  extends Component {
 Input.propTypes={
   text: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string,
+  inputValue: PropTypes.string.isRequired
 }
 
 export default Input ;
