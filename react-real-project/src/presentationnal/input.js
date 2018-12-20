@@ -5,10 +5,10 @@ class Input  extends Component {
 
   render() {
     return (
-      <p>
-        <label>{this.props.text}</label>
-        <input type={this.props.inputType} placeholder={this.props.placeholder}/>
-      </p>
+      <div>
+        <p><label>{this.props.text}</label></p>
+        <p><input type={this.props.inputType} placeholder={this.props.placeholder}/></p>
+      </div>
     );
   }
 
@@ -18,7 +18,6 @@ Input.propTypes={
   text: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  inputValue: PropTypes.string.isRequired
 }
 
 export default Input ;
