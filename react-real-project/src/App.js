@@ -6,6 +6,7 @@ import Form from './container/form';
 import { BrowserRouter,Route,Switch } from "react-router-dom";
 import Home from './presentationnal/home';
 import NoMatch from './presentationnal/404';
+import authFormContainer from './container/authFormContainer';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
         <Switch>
           <Route  exact path="/" component={Home}/>
           <Route path="/list" render={(props)=><ListContainer {...props} privileged={false}/> }/>
-          <Route path="/admin" render={(props)=>(<ListContainer {...props} privileged={true}/> )}/>
+          <Route path="/admin" component={authFormContainer}/>
           <Route component={NoMatch}/>
         </Switch>
       </div>
