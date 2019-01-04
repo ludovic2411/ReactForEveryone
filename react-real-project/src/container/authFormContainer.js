@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../presentationnal/input';
 import FormButton from '../presentationnal/button';
+import ListContainer from './listContainer';
 
 class authFormContainer extends Component {
 
@@ -24,20 +25,29 @@ class authFormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    alert(this.state.password)
+    if(this.state.login=="foo" && this.state.password=="bar"){
+
+      this.setState({isLoggin:true});
+    }
   }
 
 
   render() {
-    return (
-      <div>
+    if(!this.state.isLoggin){
+      return (
+        <div>
         <form>
-          <Input text="Your name" inputType="text" placeholder="Your Name" handlerFromParent={this.handleLogin}/>
-          <Input text="Your password" inputType="password" placeholder="" handlerFromParent={this.handlePassword}/>
-          <FormButton buttonText="Log in" function={this.handleSubmit}/>
+        <Input text="Your name" inputType="text" placeholder="Your Name" handlerFromParent={this.handleLogin}/>
+        <Input text="Your password" inputType="password" placeholder="" handlerFromParent={this.handlePassword}/>
+        <FormButton buttonText="Log in" function={this.handleSubmit}/>
         </form>
-      </div>
-    );
+        </div>
+      );
+    }else{
+      return (
+        <ListContainer privileged={true}/>
+      );
+    }
   }
 
 }
