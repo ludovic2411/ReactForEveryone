@@ -6,27 +6,34 @@ class authFormContainer extends Component {
 
   constructor(props) {
     super(props);
-    this.state ={login:"empty",
-    name: "unknown"} ;
-    this.handleName=this.handleName.bind(this);
+    this.state ={login:"",
+    password: ""} ;
     this.handleLogin=this.handleLogin.bind(this);
+    this.handlePassword=this.handlePassword.bind(this);
+    this.handleSubmit=this.handleSubmit.bind(this);
   }
 
-  handleLogin(){
-    this.setState({login:"updated"});
+  handleLogin(data){
+    this.setState({login:data});
   }
 
-  handleName(){
-    this.setState({name:"anonymous"});
+  handlePassword(data){
+    this.setState({password:data});
   }
+
+  handleSubmit(event){
+    event.preventDefault();
+    alert(this.state.password)
+  }
+
 
   render() {
     return (
       <div>
         <form>
-          <Input  text="Your name" inputType="text" placeholder="Your Name"/>
-          <Input text="Your password" inputType="password" placeholder=""/>
-          <FormButton buttonText="Log in" function={()=>{alert(this.state.name)}}/>
+          <Input text="Your name" inputType="text" placeholder="Your Name" handlerFromParent={this.handleLogin}/>
+          <Input text="Your password" inputType="password" placeholder="" handlerFromParent={this.handlePassword}/>
+          <FormButton buttonText="Log in" function={this.handleSubmit}/>
         </form>
       </div>
     );
