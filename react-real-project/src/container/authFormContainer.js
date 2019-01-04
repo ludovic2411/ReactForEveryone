@@ -7,7 +7,8 @@ class authFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state ={login:"",
-    password: ""} ;
+    password: "",
+    isLoggin:false} ;
     this.handleLogin=this.handleLogin.bind(this);
     this.handlePassword=this.handlePassword.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
