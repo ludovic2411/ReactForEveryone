@@ -21,9 +21,18 @@ class ListContainer  extends Component {
   }
 
   render() {
-    return (
-      <div>
+    let componentList=(
       <List list={this.state.list} admin={false}/>
+    );
+
+    if(this.props.privileged){
+      componentList=(
+        <List list={this.state.list} admin={true}/>
+      );
+    }
+    return(
+      <div>
+        {componentList}
       </div>
     );
   }
